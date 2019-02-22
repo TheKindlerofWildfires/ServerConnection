@@ -28,7 +28,27 @@ public class Main {
         GL.createCapabilities();
         glEnable(GL_TEXTURE_2D);
 
-        Texture tex = new Texture("./resources/example.png");
+        float[] vertices = new float[]{
+                -.5f,.5f,
+                .5f,.5f,
+                .5f,-.5f,
+                .5f,-.5f,
+                -.5f,-.5f,
+                -.5f,.5f,
+        };
+
+        float[] textures = new float[]{
+                0,0,
+                1,0,
+                1,1,
+
+                1,1,
+                0,1,
+                0,0,
+
+        };
+        Model model = new Model(vertices, textures);
+        Texture tex = new Texture("./resources/TheVoid.png");
 
 
         while(!glfwWindowShouldClose(window)){
@@ -37,21 +57,9 @@ public class Main {
                 glfwSetWindowShouldClose(window, true);
             }
             glfwPollEvents();
-
-            glClear(GL_COLOR_BUFFER_BIT);
-
             tex.bind();
-            glBegin(GL_QUADS);
-            glTexCoord2f(0,0);
-            glVertex2f(-0.5f, 0.5f);
-            glTexCoord2f(1,0);
-            glVertex2f(0.5f, 0.5f);
-            glTexCoord2f(1,1);
-            glVertex2f(0.5f, -0.5f);
-            glTexCoord2f(0,1);
-            glVertex2f(-0.5f, -0.5f);
-            glEnd();
-
+            glClear(GL_COLOR_BUFFER_BIT);
+            model.render();
             glfwSwapBuffers(window);
         }
         glfwTerminate();
