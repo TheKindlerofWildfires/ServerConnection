@@ -67,10 +67,10 @@ public class Main {
                 updates++;
                 delta--;
                 target = scale;
-                if(win.getInput().isKeyDown(GLFW_KEY_ESCAPE)){
+                if(win.getInput().isKeyPressed(GLFW_KEY_ESCAPE)){
                     glfwSetWindowShouldClose(win.getWindow(), true);
                 }
-                glfwPollEvents();
+                win.update();
             }
 
             if (System.currentTimeMillis() - timer > 1000) {

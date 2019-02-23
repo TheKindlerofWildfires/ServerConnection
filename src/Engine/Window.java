@@ -36,12 +36,7 @@ public class Window {
 
     }
     public static void setCallbacks(){
-        glfwSetErrorCallback(new GLFWErrorCallback() {
-            @Override
-            public void invoke(int error, long description) {
-                throw new IllegalStateException(GLFWErrorCallback.getDescription(description));
-            }
-        });
+        glfwSetErrorCallback(GLFWErrorCallback.createPrint(System.err));
     }
 
     public int getHeight() {
@@ -76,5 +71,9 @@ public class Window {
     }
     public Input getInput(){
         return input;
+    }
+    public void update(){
+        input.update();
+        glfwPollEvents();
     }
 }
