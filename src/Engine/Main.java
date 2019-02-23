@@ -1,5 +1,6 @@
 package Engine;
 
+import Entity.Player;
 import World.TileRenderer;
 import World.World;
 import World.Tile;
@@ -35,52 +36,50 @@ public class Main {
         World world = new World();
         world.setTile(Tile.testTile2, 0,0);
 
+        Player player = new Player();
+
         camera.setPosition(new Vector3f(0,0,0));
 
-        long lastTime = System.nanoTime();
-        double delta = 0.0;
-        double ns = 1000000000.0 / 60.0;
-        long timer = System.currentTimeMillis();
-        int updates = 0;
+        double frameCap = 1.0 / 60.0;
+
+        double frameTime = 0;
         int frames = 0;
 
+        double time = Timer.getTime();
+        double unprocessed = 0;
+
         while(!window.shouldClose()){
-            long now = System.nanoTime();
-            delta += (now - lastTime) / ns;
-            lastTime = now;
-            if (delta >= 1.0) {
-                updates++;
-                delta--;
+            boolean can_render = false;
+
+            double time2 = Timer.getTime();
+            double passed = time2 - time;
+            unprocessed += passed;
+            frameTime += passed;
+
+            time = time2;
+            while (unprocessed >= frameCap) {
+                unprocessed -= frameCap;
+                can_render = true;
                 if(window.getInput().isKeyPressed(GLFW_KEY_ESCAPE)){
                     glfwSetWindowShouldClose(window.getWindow(), true);
                 }//input should be here
-                if(window.getInput().isKeyDown(GLFW_KEY_A)){
-                    camera.getPosition().sub(new Vector3f(-5,0,0));
-                }
-                if(window.getInput().isKeyDown(GLFW_KEY_W)){
-                    camera.getPosition().sub(new Vector3f(0,5,0));
-                }
-                if(window.getInput().isKeyDown(GLFW_KEY_S)){
-                    camera.getPosition().sub(new Vector3f(0,-5,0));
-                }
-                if(window.getInput().isKeyDown(GLFW_KEY_D)){
-                    camera.getPosition().sub(new Vector3f(5,0,0));
-                }
+
+                player.update((float)frameCap, window, camera, world );
                 window.update();
                 world.correctCamera(camera, window);
-            }
+                if (frameTime >= 1.0) {
+                    frameTime = 0;
+                    System.out.println("FPS: " + frames);
+                    frames = 0;
+                }            }
 
-            if (System.currentTimeMillis() - timer > 1000) {
-                timer += 1000;
-                System.out.println(updates + " UPS, " + frames + " FPS");
-                frames = 0;
-                updates = 0;
+            if (can_render) {
+                glClear(GL_COLOR_BUFFER_BIT);
+                world.render(tiles, shader, camera, window);
+                player.render(shader,camera);
+                window.swapBuffers();
+                frames++;
             }
-            //if can render should be here
-            glClear(GL_COLOR_BUFFER_BIT);
-            world.render(tiles, shader, camera, window);
-            window.swapBuffers();
-            frames++;
         }
         glfwTerminate();
     }
