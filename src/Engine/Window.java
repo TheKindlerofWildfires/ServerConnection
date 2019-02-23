@@ -1,5 +1,6 @@
 package Engine;
 
+import Input.Input;
 import org.lwjgl.glfw.GLFWErrorCallback;
 import org.lwjgl.glfw.GLFWVidMode;
 import org.lwjgl.opengl.GL;
@@ -11,6 +12,7 @@ public class Window {
     private boolean fullscreen = false;
     private int width, height;
 
+    private Input input;
 
     public Window(){
         setHeight(10);
@@ -28,6 +30,8 @@ public class Window {
             glfwShowWindow(window);
 
             glfwMakeContextCurrent(window);
+
+            input = new Input(window);
         }
 
     }
@@ -69,5 +73,8 @@ public class Window {
     }
     public long getWindow(){
         return window;
+    }
+    public Input getInput(){
+        return input;
     }
 }
