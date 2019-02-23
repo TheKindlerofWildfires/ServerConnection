@@ -2,9 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="58595d37-16d6-4f7a-9ede-1390866b4ac5" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/World/World.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/mytodolist.txt" beforeDir="false" afterPath="$PROJECT_DIR$/resources/mytodolist.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Engine/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Engine/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/World/Tile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/World/Tile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/World/World.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/World/World.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -18,8 +19,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Engine/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="668">
-              <caret line="64" column="60" selection-start-line="64" selection-start-column="60" selection-end-line="64" selection-end-column="60" />
+            <state relative-caret-position="311">
+              <caret line="66" column="58" lean-forward="true" selection-start-line="66" selection-start-column="58" selection-end-line="66" selection-end-column="58" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#271#272#0" expanded="true" />
@@ -30,37 +31,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Engine/Texture.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-256">
-              <caret line="20" selection-start-line="20" selection-end-line="20" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/World/Tile.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="21" column="23" lean-forward="true" selection-start-line="21" selection-start-column="23" selection-end-line="21" selection-end-column="23" />
-              <folding>
-                <element signature="e#471#472#0" expanded="true" />
-                <element signature="e#495#496#0" expanded="true" />
-                <element signature="e#528#529#0" expanded="true" />
-                <element signature="e#552#553#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/World/TileRenderer.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="782">
-              <caret line="46" column="5" lean-forward="true" selection-start-line="46" selection-start-column="5" selection-end-line="46" selection-end-column="5" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="68">
+              <caret line="4" column="22" selection-start-line="4" selection-start-column="22" selection-end-line="4" selection-end-column="22" />
             </state>
           </provider>
         </entry>
@@ -68,10 +42,12 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/World/World.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="19" column="22" selection-start-line="19" selection-start-column="22" selection-end-line="19" selection-end-column="22" />
+            <state relative-caret-position="271">
+              <caret line="38" column="63" selection-start-line="38" selection-start-column="63" selection-end-line="38" selection-end-column="63" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#747#748#0" expanded="true" />
+                <element signature="e#794#795#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -102,7 +78,6 @@
         <option value="$PROJECT_DIR$/src/Game.java" />
         <option value="$PROJECT_DIR$/src/Window.java" />
         <option value="$PROJECT_DIR$/src/Helloworld.java" />
-        <option value="$PROJECT_DIR$/resources/mytodolist.txt" />
         <option value="$PROJECT_DIR$/src/Texture.java" />
         <option value="$PROJECT_DIR$/src/Model.java" />
         <option value="$PROJECT_DIR$/shaders/shader.fs" />
@@ -123,9 +98,10 @@
         <option value="$PROJECT_DIR$/src/Engine/Camera.java" />
         <option value="$PROJECT_DIR$/src/Engine/Shader.java" />
         <option value="$PROJECT_DIR$/src/Engine/Texture.java" />
-        <option value="$PROJECT_DIR$/src/World/Tile.java" />
         <option value="$PROJECT_DIR$/src/World/TileRenderer.java" />
+        <option value="$PROJECT_DIR$/resources/mytodolist.txt" />
         <option value="$PROJECT_DIR$/src/Engine/Main.java" />
+        <option value="$PROJECT_DIR$/src/World/Tile.java" />
         <option value="$PROJECT_DIR$/src/World/World.java" />
       </list>
     </option>
@@ -317,13 +293,6 @@
     <entry file="file://$PROJECT_DIR$/resources/example.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/mytodolist.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="2" selection-start-line="1" selection-start-column="2" selection-end-line="1" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/org/joml/Operators.kt" />
     <entry file="file://$PROJECT_DIR$/src/org/joml/Matrix4fc.java" />
     <entry file="file://$PROJECT_DIR$/shaders/shader.vs">
@@ -475,22 +444,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Engine/Texture.java">
+    <entry file="file://$PROJECT_DIR$/resources/mytodolist.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-256">
-          <caret line="20" selection-start-line="20" selection-end-line="20" />
+        <state relative-caret-position="51">
+          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Engine/Main.java">
+    <entry file="file://$PROJECT_DIR$/src/Engine/Texture.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="668">
-          <caret line="64" column="60" selection-start-line="64" selection-start-column="60" selection-end-line="64" selection-end-column="60" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#271#272#0" expanded="true" />
-            <element signature="e#297#298#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="-103">
+          <caret line="20" selection-start-line="20" selection-end-line="20" />
         </state>
       </provider>
     </entry>
@@ -504,25 +468,33 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Engine/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="311">
+          <caret line="66" column="58" lean-forward="true" selection-start-line="66" selection-start-column="58" selection-end-line="66" selection-end-column="58" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#271#272#0" expanded="true" />
+            <element signature="e#297#298#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/World/Tile.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="21" column="23" lean-forward="true" selection-start-line="21" selection-start-column="23" selection-end-line="21" selection-end-column="23" />
-          <folding>
-            <element signature="e#471#472#0" expanded="true" />
-            <element signature="e#495#496#0" expanded="true" />
-            <element signature="e#528#529#0" expanded="true" />
-            <element signature="e#552#553#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="68">
+          <caret line="4" column="22" selection-start-line="4" selection-start-column="22" selection-end-line="4" selection-end-column="22" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/World/World.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="19" column="22" selection-start-line="19" selection-start-column="22" selection-end-line="19" selection-end-column="22" />
+        <state relative-caret-position="271">
+          <caret line="38" column="63" selection-start-line="38" selection-start-column="63" selection-end-line="38" selection-end-column="63" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#747#748#0" expanded="true" />
+            <element signature="e#794#795#0" expanded="true" />
           </folding>
         </state>
       </provider>

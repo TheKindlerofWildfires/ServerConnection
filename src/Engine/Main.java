@@ -2,6 +2,7 @@ package Engine;
 
 import World.TileRenderer;
 import World.World;
+import World.Tile;
 import org.joml.Matrix4f;
 import org.joml.Vector3f;
 import org.lwjgl.glfw.GLFWVidMode;
@@ -30,9 +31,10 @@ public class Main {
         TileRenderer tiles = new TileRenderer();
 
         Shader shader = new Shader("shader");
-        //Texture tex = new Texture("./resources/TheVoid.png");
 
         World world = new World();
+        world.setTile(Tile.testTile2, 0,0);
+
         camera.setPosition(new Vector3f(0,0,0));
 
         long lastTime = System.nanoTime();
@@ -53,18 +55,19 @@ public class Main {
                     glfwSetWindowShouldClose(win.getWindow(), true);
                 }//input should be here
                 if(win.getInput().isKeyDown(GLFW_KEY_A)){
-                    camera.getPosition().sub(new Vector3f(5,0,0));
-                }
-                if(win.getInput().isKeyDown(GLFW_KEY_W)){
-                    camera.getPosition().sub(new Vector3f(0,-5,0));
-                }
-                if(win.getInput().isKeyDown(GLFW_KEY_S)){
-                    camera.getPosition().sub(new Vector3f(0,5,0));
-                }
-                if(win.getInput().isKeyDown(GLFW_KEY_D)){
                     camera.getPosition().sub(new Vector3f(-5,0,0));
                 }
+                if(win.getInput().isKeyDown(GLFW_KEY_W)){
+                    camera.getPosition().sub(new Vector3f(0,5,0));
+                }
+                if(win.getInput().isKeyDown(GLFW_KEY_S)){
+                    camera.getPosition().sub(new Vector3f(0,-5,0));
+                }
+                if(win.getInput().isKeyDown(GLFW_KEY_D)){
+                    camera.getPosition().sub(new Vector3f(5,0,0));
+                }
                 win.update();
+                world.correctCamera(camera, win);
             }
 
             if (System.currentTimeMillis() - timer > 1000) {
@@ -76,11 +79,6 @@ public class Main {
             //if can render should be here
             glClear(GL_COLOR_BUFFER_BIT);
             world.render(tiles, shader, camera);
-            /*for(int i = 0; i<8; i++) {
-                for (int j = 0; j < 4; j++) {
-                    tiles.renderTile((byte) 0, i, j, shader, scale, camera);
-                }
-            }*/
             win.swapBuffers();
             frames++;
         }
