@@ -1,3 +1,5 @@
+package Engine;
+
 import org.joml.Matrix4f;
 import org.joml.Vector3f;
 import org.lwjgl.glfw.GLFWVidMode;
@@ -15,18 +17,10 @@ public class Main {
         if(!glfwInit()){
             throw new IllegalStateException("GLFW no init");
         }
-        height = 640; width = 480;
-        glfwWindowHint(GLFW_VISIBLE, GLFW_FALSE);
-        long window = glfwCreateWindow(height,width,"Game Name From Main",0,0);
-        if(window==0){
-            throw new IllegalStateException("Window no init");
-        }
 
-        GLFWVidMode videoMode = glfwGetVideoMode(glfwGetPrimaryMonitor());
-        glfwSetWindowPos(window, (videoMode.width()-height)/2, (videoMode.height()-width)/2);
-
-        glfwShowWindow(window);
-        glfwMakeContextCurrent(window);
+        Window win = new Window();
+        win.createWindow("Game");
+        win.setWidth(640); win.setHeight(480);
         GL.createCapabilities();
 
         Camera camera = new Camera(640, 480);
@@ -66,7 +60,7 @@ public class Main {
         int updates = 0;
         int frames = 0;
 
-        while(!glfwWindowShouldClose(window)){
+        while(!win.shouldClose()){
             long now = System.nanoTime();
             delta += (now - lastTime) / ns;
             lastTime = now;
@@ -74,14 +68,12 @@ public class Main {
                 updates++;
                 delta--;
                 target = scale;
-                if(glfwGetKey(window, GLFW_KEY_ESCAPE)==GL_TRUE){
+                /*if(glfwGetKey(window, GLFW_KEY_ESCAPE)==GL_TRUE){
                     glfwSetWindowShouldClose(window, true);
-                }
+                }*/
                 glfwPollEvents();
             }
 
-
-            frames++;
             if (System.currentTimeMillis() - timer > 1000) {
                 timer += 1000;
                 System.out.println(updates + " UPS, " + frames + " FPS");
@@ -94,7 +86,8 @@ public class Main {
             shader.setUniform("projection", camera.getProjection().mul(target));
             tex.bind(0);
             model.render();
-            glfwSwapBuffers(window);
+            win.swapBuffers();
+            frames++;
         }
         glfwTerminate();
     }
