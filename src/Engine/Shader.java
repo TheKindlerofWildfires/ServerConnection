@@ -89,4 +89,11 @@ import static org.lwjgl.opengl.GL20.*;
     public void bind(){
         glUseProgram(program);
     }
+    protected void finalize(){
+        glDetachShader(program, vs);
+        glDetachShader(program, fs);
+        glDeleteShader(vs);
+        glDeleteShader(fs);
+        glDeleteProgram(program);
+    }
 }

@@ -19,13 +19,13 @@ public class Main {
             throw new IllegalStateException("GLFW no init");
         }
 
-        Window win = new Window();
-        win.setWidth(1920); win.setHeight(1080);
-        win.createWindow("Game");
-        win.setCallbacks();
+        Window window = new Window();
+        window.setWidth(1920); window.setHeight(1080);
+        window.createWindow("Game");
+        window.setCallbacks();
         GL.createCapabilities();
 
-        Camera camera = new Camera(win.getWidth(), win.getHeight());
+        Camera camera = new Camera(window.getWidth(), window.getHeight());
         glEnable(GL_TEXTURE_2D);
 
         TileRenderer tiles = new TileRenderer();
@@ -44,30 +44,30 @@ public class Main {
         int updates = 0;
         int frames = 0;
 
-        while(!win.shouldClose()){
+        while(!window.shouldClose()){
             long now = System.nanoTime();
             delta += (now - lastTime) / ns;
             lastTime = now;
             if (delta >= 1.0) {
                 updates++;
                 delta--;
-                if(win.getInput().isKeyPressed(GLFW_KEY_ESCAPE)){
-                    glfwSetWindowShouldClose(win.getWindow(), true);
+                if(window.getInput().isKeyPressed(GLFW_KEY_ESCAPE)){
+                    glfwSetWindowShouldClose(window.getWindow(), true);
                 }//input should be here
-                if(win.getInput().isKeyDown(GLFW_KEY_A)){
+                if(window.getInput().isKeyDown(GLFW_KEY_A)){
                     camera.getPosition().sub(new Vector3f(-5,0,0));
                 }
-                if(win.getInput().isKeyDown(GLFW_KEY_W)){
+                if(window.getInput().isKeyDown(GLFW_KEY_W)){
                     camera.getPosition().sub(new Vector3f(0,5,0));
                 }
-                if(win.getInput().isKeyDown(GLFW_KEY_S)){
+                if(window.getInput().isKeyDown(GLFW_KEY_S)){
                     camera.getPosition().sub(new Vector3f(0,-5,0));
                 }
-                if(win.getInput().isKeyDown(GLFW_KEY_D)){
+                if(window.getInput().isKeyDown(GLFW_KEY_D)){
                     camera.getPosition().sub(new Vector3f(5,0,0));
                 }
-                win.update();
-                world.correctCamera(camera, win);
+                window.update();
+                world.correctCamera(camera, window);
             }
 
             if (System.currentTimeMillis() - timer > 1000) {
@@ -78,8 +78,8 @@ public class Main {
             }
             //if can render should be here
             glClear(GL_COLOR_BUFFER_BIT);
-            world.render(tiles, shader, camera);
-            win.swapBuffers();
+            world.render(tiles, shader, camera, window);
+            window.swapBuffers();
             frames++;
         }
         glfwTerminate();

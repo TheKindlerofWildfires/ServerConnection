@@ -1,3 +1,4 @@
 make a class to handle input from multiple chars
 Use stb_image to load textures
 cap fps with ups
+make tile culling in world less stupid

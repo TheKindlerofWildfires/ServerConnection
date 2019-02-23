@@ -11,6 +11,7 @@ public class World {
     private int width;
     private int height;
     private int scale;
+    private final int view = 64;
     private Matrix4f world;
     public World(){
         width = 64;
@@ -22,10 +23,18 @@ public class World {
         world = new Matrix4f().setTranslation(new Vector3f(0));
         world.scale(scale);
     }
-    public void render(TileRenderer render, Shader shader, Camera cam){
-        for(int i = 0; i< height; i++){
-            for(int j = 0; j< width; j++){
-                render.renderTile(tiles[j+i*width], j, -i, shader, world, cam );
+    public void render(TileRenderer render, Shader shader, Camera cam, Window win){
+
+        int posX =((int)cam.getPosition().x+win.getWidth()/2) /(scale*2);//two bad?
+        int posY =((int)cam.getPosition().y-win.getHeight()/2) /(scale*2);
+
+        for(int i = 0; i< view; i++){
+            for(int j = 0; j< view; j++){
+                Tile t = getTile(i-posX, j+posY);
+                if(t!=null){
+                    render.renderTile(t, i-posX, -j-posY, shader, world, cam);
+
+                }
             }
         }
     }
@@ -48,6 +57,13 @@ public class World {
         }
         if(pos.y >h-(win.getHeight()/2)-scale){
             pos.y = h-(win.getHeight()/2)-scale;
+        }
+    }
+    public Tile getTile(int x, int y){
+        try{
+            return Tile.tiles[tiles[x+y*width] ];
+        }catch (ArrayIndexOutOfBoundsException e){
+            return null;
         }
     }
 }
