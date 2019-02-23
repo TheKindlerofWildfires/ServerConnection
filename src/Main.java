@@ -59,18 +59,39 @@ public class Main {
 
         camera.setPosition(new Vector3f(-100,0,0));
 
+        long lastTime = System.nanoTime();
+        double delta = 0.0;
+        double ns = 1000000000.0 / 60.0;
+        long timer = System.currentTimeMillis();
+        int updates = 0;
+        int frames = 0;
+
         while(!glfwWindowShouldClose(window)){
-
-            if(glfwGetKey(window, GLFW_KEY_ESCAPE)==GL_TRUE){
-                glfwSetWindowShouldClose(window, true);
+            long now = System.nanoTime();
+            delta += (now - lastTime) / ns;
+            lastTime = now;
+            if (delta >= 1.0) {
+                updates++;
+                delta--;
+                target = scale;
+                if(glfwGetKey(window, GLFW_KEY_ESCAPE)==GL_TRUE){
+                    glfwSetWindowShouldClose(window, true);
+                }
+                glfwPollEvents();
             }
-            glfwPollEvents();
-            target = scale;
 
+
+            frames++;
+            if (System.currentTimeMillis() - timer > 1000) {
+                timer += 1000;
+                System.out.println(updates + " UPS, " + frames + " FPS");
+                frames = 0;
+                updates = 0;
+            }
             glClear(GL_COLOR_BUFFER_BIT);
             shader.bind();
-            shader.setUniform("sampler",0);
-            shader.setUniform("projection",camera.getProjection().mul(target));
+            shader.setUniform("sampler", 0);
+            shader.setUniform("projection", camera.getProjection().mul(target));
             tex.bind(0);
             model.render();
             glfwSwapBuffers(window);
