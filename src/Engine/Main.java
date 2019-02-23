@@ -8,8 +8,6 @@ import static org.lwjgl.glfw.GLFW.*;
 import static org.lwjgl.opengl.GL11.*;
 import org.lwjgl.opengl.GL;
 public class Main {
-    public static int height;
-    public static int width;
     public static void main(String[] args){
         new Main();
     }
@@ -21,7 +19,7 @@ public class Main {
         Window win = new Window();
         win.setWidth(1920); win.setHeight(1080);
         win.createWindow("Game");
-
+        win.setCallbacks();
         GL.createCapabilities();
 
         Camera camera = new Camera(win.getWidth(), win.getHeight());

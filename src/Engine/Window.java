@@ -1,5 +1,6 @@
 package Engine;
 
+import org.lwjgl.glfw.GLFWErrorCallback;
 import org.lwjgl.glfw.GLFWVidMode;
 import org.lwjgl.opengl.GL;
 
@@ -9,6 +10,8 @@ public class Window {
     private long window;
     private boolean fullscreen = false;
     private int width, height;
+
+
     public Window(){
         setHeight(10);
         setWidth(10);
@@ -27,6 +30,14 @@ public class Window {
             glfwMakeContextCurrent(window);
         }
 
+    }
+    public static void setCallbacks(){
+        glfwSetErrorCallback(new GLFWErrorCallback() {
+            @Override
+            public void invoke(int error, long description) {
+                throw new IllegalStateException(GLFWErrorCallback.getDescription(description));
+            }
+        });
     }
 
     public int getHeight() {
