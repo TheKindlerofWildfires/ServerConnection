@@ -1,16 +1,19 @@
 import org.lwjgl.BufferUtils;
 
 import java.nio.FloatBuffer;
+import java.nio.IntBuffer;
 
 import static org.lwjgl.opengl.GL11.*;
 import static org.lwjgl.opengl.GL15.*;
 
 public class Model {
-    private int draw_count;
+    private int drawCount;
     private int v_id;
     private int t_id;
-    public Model(float[] verts, float[] tex){
-        draw_count = verts.length/2;
+
+    private int i_id;
+    public Model(float[] verts, float[] tex, int[] indices){
+        drawCount = indices.length;
         v_id = glGenBuffers();
         glBindBuffer(GL_ARRAY_BUFFER, v_id);
         glBufferData(GL_ARRAY_BUFFER, createFloatBuffer(verts), GL_STATIC_DRAW);
@@ -19,7 +22,15 @@ public class Model {
         glBindBuffer(GL_ARRAY_BUFFER, t_id);
         glBufferData(GL_ARRAY_BUFFER, createFloatBuffer(tex), GL_STATIC_DRAW);
 
+        i_id = glGenBuffers();
+        IntBuffer buffer = BufferUtils.createIntBuffer(indices.length);
+        buffer.put(indices);
+        buffer.flip();
+        glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, i_id);
+        glBufferData(GL_ELEMENT_ARRAY_BUFFER, buffer, GL_STATIC_DRAW);
+
         glBindBuffer(GL_ARRAY_BUFFER, 0);
+        glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
     }
     public void render(){
         glEnableClientState(GL_VERTEX_ARRAY);
@@ -29,9 +40,11 @@ public class Model {
 
         glBindBuffer(GL_ARRAY_BUFFER, t_id);
         glTexCoordPointer(2, GL_FLOAT, 0,0);
-
-        glDrawArrays(GL_TRIANGLES, 0, draw_count);
         glBindBuffer(GL_ARRAY_BUFFER, 0);
+
+        glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, i_id);
+        glDrawElements(GL_TRIANGLES, drawCount, GL_UNSIGNED_INT, 0);
+        glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
 
         glDisableClientState(GL_VERTEX_ARRAY);
         glDisableClientState(GL_TEXTURE_COORD_ARRAY);

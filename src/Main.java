@@ -32,23 +32,23 @@ public class Main {
                 -.5f,.5f,
                 .5f,.5f,
                 .5f,-.5f,
-                .5f,-.5f,
                 -.5f,-.5f,
-                -.5f,.5f,
         };
 
         float[] textures = new float[]{
                 0,0,
                 1,0,
                 1,1,
-
-                1,1,
                 0,1,
-                0,0,
 
         };
-        Model model = new Model(vertices, textures);
-        Texture tex = new Texture("./resources/TheVoid.png");
+        int[] indices = new int[]{
+                0,1,2,
+                2,3,0
+        };
+        Model model = new Model(vertices, textures,indices);
+        Shader shader = new Shader("shader");
+        //Texture tex = new Texture("./resources/TheVoid.png");
 
 
         while(!glfwWindowShouldClose(window)){
@@ -57,8 +57,10 @@ public class Main {
                 glfwSetWindowShouldClose(window, true);
             }
             glfwPollEvents();
-            tex.bind();
+
             glClear(GL_COLOR_BUFFER_BIT);
+            shader.bind();
+            // tex.bind();
             model.render();
             glfwSwapBuffers(window);
         }
