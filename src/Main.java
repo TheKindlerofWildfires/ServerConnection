@@ -29,10 +29,10 @@ public class Main {
         glEnable(GL_TEXTURE_2D);
 
         float[] vertices = new float[]{
-                -.5f,.5f,
-                .5f,.5f,
-                .5f,-.5f,
-                -.5f,-.5f,
+                -.5f,.5f,0,
+                .5f,.5f,0,
+                .5f,-.5f,0,
+                -.5f,-.5f,0
         };
 
         float[] textures = new float[]{
@@ -48,7 +48,7 @@ public class Main {
         };
         Model model = new Model(vertices, textures,indices);
         Shader shader = new Shader("shader");
-        //Texture tex = new Texture("./resources/TheVoid.png");
+        Texture tex = new Texture("./resources/TheVoid.png");
 
 
         while(!glfwWindowShouldClose(window)){
@@ -60,7 +60,8 @@ public class Main {
 
             glClear(GL_COLOR_BUFFER_BIT);
             shader.bind();
-            // tex.bind();
+            shader.setUniform("sampler",0);
+            tex.bind(0);
             model.render();
             glfwSwapBuffers(window);
         }

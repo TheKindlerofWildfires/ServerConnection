@@ -29,10 +29,11 @@ import static org.lwjgl.opengl.GL20.*;
             System.exit(1);
         }
 
-        glAttachShader(program,vs);
+        glAttachShader(program, vs);
         glAttachShader(program, fs);
 
         glBindAttribLocation(program, 0, "vertices");
+        glBindAttribLocation(program, 1, "textures");
 
         glLinkProgram(program);
         if(glGetProgrami(program, GL_LINK_STATUS)!= 1){
@@ -62,6 +63,14 @@ import static org.lwjgl.opengl.GL20.*;
         }
         return string.toString();
     }
+    public void setUniform(String name, int value){
+        int location = glGetUniformLocation(program, name);
+        if(location!=-1){
+            glUniform1i(location, value);
+
+        }
+    }
+
     public void bind(){
         glUseProgram(program);
     }
