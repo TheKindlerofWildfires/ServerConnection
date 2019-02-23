@@ -14,7 +14,7 @@ public class Client {
 
        // String hostName = args[0];
         //int portNumber = Integer.parseInt(args[1]);
-        String hostName = "localHost";
+        String hostName = "AnIPAddress";
         int portNumber = 1337;
 
         try (
