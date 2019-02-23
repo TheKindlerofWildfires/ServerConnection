@@ -11,7 +11,7 @@ import java.nio.FloatBuffer;
 
 import static org.lwjgl.opengl.GL20.*;
 
- class Shader {
+ public class Shader {
     private int program;
     private int vs;
     private int fs;

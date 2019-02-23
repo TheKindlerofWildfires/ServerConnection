@@ -1,5 +1,6 @@
 package Engine;
 
+import World.TileRenderer;
 import org.joml.Matrix4f;
 import org.joml.Vector3f;
 import org.lwjgl.glfw.GLFWVidMode;
@@ -25,29 +26,12 @@ public class Main {
         Camera camera = new Camera(win.getWidth(), win.getHeight());
         glEnable(GL_TEXTURE_2D);
 
-        float[] vertices = new float[]{
-                -.5f,.5f,0,
-                .5f,.5f,0,
-                .5f,-.5f,0,
-                -.5f,-.5f,0
-        };
+        TileRenderer tiles = new TileRenderer();
 
-        float[] textures = new float[]{
-                0,0,
-                1,0,
-                1,1,
-                0,1,
-
-        };
-        int[] indices = new int[]{
-                0,1,2,
-                2,3,0
-        };
-        Model model = new Model(vertices, textures,indices);
         Shader shader = new Shader("shader");
-        Texture tex = new Texture("./resources/TheVoid.png");
+        //Texture tex = new Texture("./resources/TheVoid.png");
 
-        Matrix4f scale = new Matrix4f().scale(64);
+        Matrix4f scale = new Matrix4f().translate(new Vector3f(0,0,0)).scale(16);
         Matrix4f target = new Matrix4f();
 
         camera.setPosition(new Vector3f(0,0,0));
@@ -80,11 +64,11 @@ public class Main {
                 updates = 0;
             }
             glClear(GL_COLOR_BUFFER_BIT);
-            shader.bind();
-            shader.setUniform("sampler", 0);
-            shader.setUniform("projection", camera.getProjection().mul(target));
-            tex.bind(0);
-            model.render();
+            for(int i = 0; i<8; i++) {
+                for (int j = 0; j < 4; j++) {
+                    tiles.renderTile((byte) 0, i, j, shader, scale, camera);
+                }
+            }
             win.swapBuffers();
             frames++;
         }
