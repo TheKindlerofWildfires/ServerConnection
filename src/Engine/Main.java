@@ -19,11 +19,12 @@ public class Main {
         }
 
         Window win = new Window();
+        win.setWidth(1920); win.setHeight(1080);
         win.createWindow("Game");
-        win.setWidth(640); win.setHeight(480);
+
         GL.createCapabilities();
 
-        Camera camera = new Camera(640, 480);
+        Camera camera = new Camera(win.getWidth(), win.getHeight());
         glEnable(GL_TEXTURE_2D);
 
         float[] vertices = new float[]{
@@ -51,7 +52,7 @@ public class Main {
         Matrix4f scale = new Matrix4f().scale(64);
         Matrix4f target = new Matrix4f();
 
-        camera.setPosition(new Vector3f(-100,0,0));
+        camera.setPosition(new Vector3f(0,0,0));
 
         long lastTime = System.nanoTime();
         double delta = 0.0;
@@ -68,9 +69,9 @@ public class Main {
                 updates++;
                 delta--;
                 target = scale;
-                /*if(glfwGetKey(window, GLFW_KEY_ESCAPE)==GL_TRUE){
-                    glfwSetWindowShouldClose(window, true);
-                }*/
+                if(glfwGetKey(win.getWindow(), GLFW_KEY_ESCAPE)==GL_TRUE){
+                    glfwSetWindowShouldClose(win.getWindow(), true);
+                }
                 glfwPollEvents();
             }
 
