@@ -1,6 +1,7 @@
 package Engine;
 
 import World.TileRenderer;
+import World.World;
 import org.joml.Matrix4f;
 import org.joml.Vector3f;
 import org.lwjgl.glfw.GLFWVidMode;
@@ -31,9 +32,7 @@ public class Main {
         Shader shader = new Shader("shader");
         //Texture tex = new Texture("./resources/TheVoid.png");
 
-        Matrix4f scale = new Matrix4f().translate(new Vector3f(0,0,0)).scale(16);
-        Matrix4f target = new Matrix4f();
-
+        World world = new World();
         camera.setPosition(new Vector3f(0,0,0));
 
         long lastTime = System.nanoTime();
@@ -50,9 +49,20 @@ public class Main {
             if (delta >= 1.0) {
                 updates++;
                 delta--;
-                target = scale;
                 if(win.getInput().isKeyPressed(GLFW_KEY_ESCAPE)){
                     glfwSetWindowShouldClose(win.getWindow(), true);
+                }//input should be here
+                if(win.getInput().isKeyDown(GLFW_KEY_A)){
+                    camera.getPosition().sub(new Vector3f(5,0,0));
+                }
+                if(win.getInput().isKeyDown(GLFW_KEY_W)){
+                    camera.getPosition().sub(new Vector3f(0,-5,0));
+                }
+                if(win.getInput().isKeyDown(GLFW_KEY_S)){
+                    camera.getPosition().sub(new Vector3f(0,5,0));
+                }
+                if(win.getInput().isKeyDown(GLFW_KEY_D)){
+                    camera.getPosition().sub(new Vector3f(-5,0,0));
                 }
                 win.update();
             }
@@ -63,12 +73,14 @@ public class Main {
                 frames = 0;
                 updates = 0;
             }
+            //if can render should be here
             glClear(GL_COLOR_BUFFER_BIT);
-            for(int i = 0; i<8; i++) {
+            world.render(tiles, shader, camera);
+            /*for(int i = 0; i<8; i++) {
                 for (int j = 0; j < 4; j++) {
                     tiles.renderTile((byte) 0, i, j, shader, scale, camera);
                 }
-            }
+            }*/
             win.swapBuffers();
             frames++;
         }
