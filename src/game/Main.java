@@ -14,6 +14,8 @@ import render.Shader;
 import world.TileRenderer;
 import world.World;
 
+import java.awt.*;
+
 public class Main {
 	public Main() {
 		Window.setCallbacks();
@@ -24,7 +26,8 @@ public class Main {
 		}
 		
 		Window window = new Window();
-		window.setSize(640, 480);
+		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+		window.setSize((int)screenSize.getWidth(), (int)screenSize.getHeight());
 		window.setFullscreen(false);
 		window.createWindow("Game");
 		
@@ -97,16 +100,7 @@ public class Main {
 			if (can_render) {
 				glClear(GL_COLOR_BUFFER_BIT);
 				
-				// shader.bind();
-				// shader.setUniform("sampler", 0);
-				// shader.setUniform("projection",
-				// camera.getProjection().mul(target));
-				// model.render();
-				// tex.bind(0);
-				
 				world.render(tiles, shader, camera);
-				
-				gui.render();
 				
 				window.swapBuffers();
 				frames++;

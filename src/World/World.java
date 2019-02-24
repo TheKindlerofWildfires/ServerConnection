@@ -51,7 +51,7 @@ public class World {
 			
 			for (int y = 0; y < height; y++) {
 				for (int x = 0; x < width; x++) {
-					int red = (colorTileSheet[x + y * width] >> 16) & 0xFF;
+					int red = (colorTileSheet[x + y * width] >> 16) & 0xFF;//afaict this just checks if the png has a red tile at that point, but we can use the color coding to make diff tiles
 					int entity_index = (colorEntitySheet[x + y * width] >> 16) & 0xFF;
 					int entity_alpha = (colorEntitySheet[x + y * width] >> 24) & 0xFF;
 					
