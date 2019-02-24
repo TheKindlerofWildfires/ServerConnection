@@ -1,7 +1,7 @@
 package World;
 
-import Engine.Camera;
-import Engine.Shader;
+import Render.Camera;
+import Render.Shader;
 import Engine.Window;
 import org.joml.Matrix4f;
 import org.joml.Vector3f;

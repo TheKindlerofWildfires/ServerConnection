@@ -1,9 +1,10 @@
 package World;
 
-import Engine.Model;
-import Engine.Texture;
-import Engine.*;
+import Render.Model;
+import Render.Texture;
 
+import Render.Camera;
+import Render.Shader;
 import org.joml.Matrix4f;
 import org.joml.Vector3f;
 

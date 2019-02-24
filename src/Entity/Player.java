@@ -1,6 +1,7 @@
 package Entity;
 
 import Engine.*;
+import Render.*;
 import World.World;
 import org.joml.Vector3f;
 
@@ -9,7 +10,7 @@ import static org.lwjgl.glfw.GLFW.GLFW_KEY_D;
 
 public class Player {
     private Model model;
-    private Texture texture;
+    private Animation texture;
     private Transform transform;
     public Player(){
         float[] vertices = new float[]{
@@ -31,7 +32,8 @@ public class Player {
                 2,3,0
         };
         model = new Model(vertices, textures,indices);
-        texture = new Texture("TheVoid.png");
+        //texture = new Texture("TheVoid.png");
+        texture = new Animation(3, 5, "void");
         transform = new Transform();
         transform.scale = new Vector3f(32,32,1);
 

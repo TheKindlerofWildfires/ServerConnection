@@ -1,12 +1,12 @@
 package Engine;
 
 import Entity.Player;
+import Render.Camera;
+import Render.Shader;
 import World.TileRenderer;
 import World.World;
 import World.Tile;
-import org.joml.Matrix4f;
 import org.joml.Vector3f;
-import org.lwjgl.glfw.GLFWVidMode;
 
 import static org.lwjgl.glfw.GLFW.*;
 import static org.lwjgl.opengl.GL11.*;
