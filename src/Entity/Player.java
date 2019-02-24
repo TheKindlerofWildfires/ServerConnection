@@ -1,8 +1,11 @@
 package Entity;
 
+import Collision.AABB;
+import Collision.Collision;
 import Engine.*;
 import Render.*;
 import World.World;
+import org.joml.Vector2f;
 import org.joml.Vector3f;
 
 import static org.lwjgl.glfw.GLFW.*;
@@ -10,6 +13,7 @@ import static org.lwjgl.glfw.GLFW.GLFW_KEY_D;
 
 public class Player {
     private Model model;
+    private AABB boundingBox;
     private Animation texture;
     private Transform transform;
     public Player(){
@@ -36,6 +40,7 @@ public class Player {
         texture = new Animation(3, 5, "void");
         transform = new Transform();
         transform.scale = new Vector3f(32,32,1);
+        boundingBox = new AABB(new Vector2f(transform.pos.x, transform.pos.y), new Vector2f(1,1));
 
     }
     public void update(float delta, Window window, Camera camera, World world){
@@ -51,7 +56,38 @@ public class Player {
         if(window.getInput().isKeyDown(GLFW_KEY_D)){
             transform.pos.add(new Vector3f(5*delta,0,0));
         }
-        camera.setPosition(transform.pos.mul(-world.getScale(), new Vector3f()));
+
+        boundingBox.getCenter().set(transform.pos.x, transform.pos.y);
+        AABB[] boxes = new AABB[25];
+        //more x2 error here?
+        for(int i = 0; i<5;i++){
+            for(int j = 0; j<5;j++){
+                boxes[i+j*5]= world.getTileBoundingBox((int)(transform.pos.x/2)-(5/2)+i,
+                        (int)(-transform.pos.y/2)-(5/2)+j);
+            }
+        }
+        AABB box = null;
+        for(int i = 0; i<boxes.length; i++){
+            if(boxes[i] != null){
+                if(box ==null){
+                    box = boxes[i];
+                }
+                Vector2f lenght1 = box.getCenter().sub(transform.pos.x, transform.pos.y, new Vector2f());
+                Vector2f length2 = boxes[i].getCenter().sub(transform.pos.x, transform.pos.y, new Vector2f());
+
+                if(lenght1.lengthSquared()>length2.lengthSquared()){
+                    box = boxes[i];
+                }
+            }
+        }
+        if(box!=null) {
+            Collision data = boundingBox.getCollision(box);
+            if (data.isIntersecting) {
+                boundingBox.correctPosition(box, data);
+                transform.pos.set(boundingBox.getCenter(),0);
+            }
+            camera.setPosition(transform.pos.mul(-world.getScale(), new Vector3f()));
+        }
     }
     public void render(Shader shader, Camera camera){
         shader.bind();

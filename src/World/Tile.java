@@ -5,13 +5,15 @@ public class Tile {
     public static byte NOT = 0;
 
     public static final Tile testTile = new Tile("grass");
-    public static final Tile testTile2 = new Tile( "example");
+    public static final Tile testTile2 = new Tile( "example").setSolid();
 
     private byte id;
+    private boolean solid;
     private String texture;
 
     public Tile(String texture){
         this.id = NOT;
+        this.solid = false;
         NOT++;
         this.texture = texture;
         if(tiles[id]!=null){
@@ -24,5 +26,10 @@ public class Tile {
     }
     public String getTexture(){
         return texture;
+    }
+    public Tile setSolid(){this.solid = true; return this;}
+
+    public boolean isSolid() {
+        return solid;
     }
 }

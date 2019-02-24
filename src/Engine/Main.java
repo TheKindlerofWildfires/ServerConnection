@@ -1,11 +1,13 @@
 package Engine;
 
+import Collision.AABB;
 import Entity.Player;
 import Render.Camera;
 import Render.Shader;
 import World.TileRenderer;
 import World.World;
 import World.Tile;
+import org.joml.Vector2f;
 import org.joml.Vector3f;
 
 import static org.lwjgl.glfw.GLFW.*;
@@ -23,7 +25,7 @@ public class Main {
         Window window = new Window();
         window.setWidth(1920); window.setHeight(1080);
         window.createWindow("Game");
-        window.setCallbacks();
+        Window.setCallbacks();
         GL.createCapabilities();
 
         Camera camera = new Camera(window.getWidth(), window.getHeight());
@@ -34,7 +36,8 @@ public class Main {
         Shader shader = new Shader("shader");
 
         World world = new World();
-        world.setTile(Tile.testTile2, 0,0);
+        world.setTile(Tile.testTile2, 5,0);
+        world.setTile(Tile.testTile2, 6,0);
 
         Player player = new Player();
 
@@ -65,8 +68,9 @@ public class Main {
                 }//input should be here
 
                 player.update((float)frameCap, window, camera, world );
-                window.update();
                 world.correctCamera(camera, window);
+                window.update();
+
                 if (frameTime >= 1.0) {
                     frameTime = 0;
                     System.out.println("FPS: " + frames);
