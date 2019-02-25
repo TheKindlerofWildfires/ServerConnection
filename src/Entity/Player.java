@@ -31,6 +31,8 @@ public class Player extends Entity {
 		if (window.getInput().isKeyDown(GLFW.GLFW_KEY_W)) movement.add(0, speed * delta);
 		
 		if (window.getInput().isKeyDown(GLFW.GLFW_KEY_S)) movement.add(0, -speed * delta);
+
+		if (window.getInput().isKeyPressed(GLFW.GLFW_KEY_SPACE)) movement.add(0, -speed * delta);
 		
 		move(movement);
 		

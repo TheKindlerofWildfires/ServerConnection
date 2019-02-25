@@ -83,7 +83,7 @@ RIFT SDK Derivatives that you may create, and you hereby assign any and all such
 rights to such RIFT SDK Derivatives to Oculus VR, subject to the following.
 
 2.1  We hereby grant to you the a fully paid up, no-charge, royalty-free, 
-World-wide, in perpetuity, non-exclusive right and license back to use these RIFT
+world-wide, in perpetuity, non-exclusive right and license back to use these RIFT
 SDK Derivatives solely in conjunction with the RIFT SDK (or any components of the 
 RIFT SDK) and/or Developer Content on Oculus Rift Products as set forth herein.
 
