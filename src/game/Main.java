@@ -27,8 +27,8 @@ public class Main {
 		
 		Window window = new Window();
 		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();//This code is being really shitty
-		window.setSize((int)screenSize.getWidth(), (int)screenSize.getHeight());
-		//window.setSize(1536*2, 864*2);
+		//window.setSize((int)screenSize.getWidth(), (int)screenSize.getHeight());
+		window.setSize(1920, 1080);
 		window.setFullscreen(false);
 		window.createWindow("Game");
 		
