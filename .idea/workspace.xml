@@ -2,23 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dd4e1e14-9d9f-4612-9206-53baa40135be" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/Entity/Projectile.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/levels/test_level/tiles.png" beforeDir="false" afterPath="$PROJECT_DIR$/levels/test_level/tiles.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/textures/bricks.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/textures/checker.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/textures/grass.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/textures/player/idle/0.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/textures/player/idle/0.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/textures/player/idle/1.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/textures/player/idle/1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/textures/player/idle/2.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/textures/player/idle/2.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/textures/player/idle/3.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/textures/player/idle/3.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/textures/player/walking/0.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/textures/player/walking/0.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/textures/player/walking/1.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/textures/player/walking/1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/textures/player/walking/2.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/textures/player/walking/2.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/textures/player/walking/3.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/textures/player/walking/3.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/textures/test.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/World/World.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/World/World.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entity/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entity/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entity/Entity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entity/Entity.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -28,7 +14,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/game/Main.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -41,8 +27,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/world/World.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="262">
-              <caret line="53" column="126" selection-start-line="53" selection-start-column="126" selection-end-line="53" selection-end-column="126" />
+            <state relative-caret-position="155">
+              <caret line="131" column="40" selection-start-line="131" selection-start-column="40" selection-end-line="131" selection-end-column="40" />
             </state>
           </provider>
         </entry>
@@ -59,13 +45,29 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/entity/Player.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="19" column="50" selection-start-line="19" selection-start-column="50" selection-end-line="19" selection-end-column="50" />
+            <state relative-caret-position="569">
+              <caret line="43" column="87" selection-start-line="43" selection-start-column="87" selection-end-line="43" selection-end-column="87" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/entity/Entity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="306">
+              <caret line="89" column="9" selection-start-line="44" selection-start-column="8" selection-end-line="89" selection-end-column="9" />
             </state>
           </provider>
         </entry>
       </file>
     </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
@@ -83,7 +85,6 @@
       <list>
         <option value="$PROJECT_DIR$/src/collision/AABB.java" />
         <option value="$PROJECT_DIR$/src/collision/Collision.java" />
-        <option value="$PROJECT_DIR$/src/entity/Entity.java" />
         <option value="$PROJECT_DIR$/src/entity/Transform.java" />
         <option value="$PROJECT_DIR$/src/io/Input.java" />
         <option value="$PROJECT_DIR$/src/io/Timer.java" />
@@ -98,8 +99,10 @@
         <option value="$PROJECT_DIR$/src/render/Texture.java" />
         <option value="$PROJECT_DIR$/src/render/Shader.java" />
         <option value="$PROJECT_DIR$/src/game/Main.java" />
-        <option value="$PROJECT_DIR$/src/world/World.java" />
         <option value="$PROJECT_DIR$/src/world/Tile.java" />
+        <option value="$PROJECT_DIR$/src/world/World.java" />
+        <option value="$PROJECT_DIR$/src/entity/Entity.java" />
+        <option value="$PROJECT_DIR$/src/entity/Projectile.java" />
         <option value="$PROJECT_DIR$/src/entity/Player.java" />
       </list>
     </option>
@@ -116,56 +119,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="ServerConnection" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ServerConnection" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ServerConnection" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ServerConnection" type="462c0819:PsiDirectoryNode" />
-              <item name="levels" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ServerConnection" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ServerConnection" type="462c0819:PsiDirectoryNode" />
-              <item name="levels" type="462c0819:PsiDirectoryNode" />
-              <item name="test_level" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ServerConnection" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ServerConnection" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ServerConnection" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ServerConnection" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="textures" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ServerConnection" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ServerConnection" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ServerConnection" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ServerConnection" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="entity" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ServerConnection" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ServerConnection" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="world" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
       <pane id="Scope" />
       <pane id="PackagesPane">
         <subPane>
@@ -188,6 +141,45 @@
               <item name="ServerConnection" type="58d84e3e:PackageViewProjectNode" />
               <item name="ServerConnection" type="616d4139:PackageViewModuleNode" />
               <item name="world" type="1f31426a:PackageElementNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="ServerConnection" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ServerConnection" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ServerConnection" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ServerConnection" type="462c0819:PsiDirectoryNode" />
+              <item name="levels" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ServerConnection" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ServerConnection" type="462c0819:PsiDirectoryNode" />
+              <item name="levels" type="462c0819:PsiDirectoryNode" />
+              <item name="test_level" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ServerConnection" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ServerConnection" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ServerConnection" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ServerConnection" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="entity" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ServerConnection" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ServerConnection" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="world" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -238,15 +230,14 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18283582" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18496802" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.33261105" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.33261105" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -274,13 +265,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state>
           <caret column="17" selection-start-column="17" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/entity/Entity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="8" selection-start-column="8" selection-end-column="8" />
         </state>
       </provider>
     </entry>
@@ -347,9 +331,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/textures/grass.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/textures/grass.png" />
     <entry file="file://$PROJECT_DIR$/src/render/Texture.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
@@ -391,31 +373,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/levels/test_level/tiles.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/textures/bricks.png" />
+    <entry file="file://$PROJECT_DIR$/resources/textures/test.png" />
+    <entry file="file://$PROJECT_DIR$/resources/textures/checker.png" />
     <entry file="file://$PROJECT_DIR$/src/game/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="289">
           <caret line="31" column="29" selection-start-line="31" selection-start-column="29" selection-end-line="31" selection-end-column="33" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/levels/test_level/tiles.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/world/World.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="262">
-          <caret line="53" column="126" selection-start-line="53" selection-start-column="126" selection-end-line="53" selection-end-column="126" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/textures/bricks.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/textures/test.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/textures/checker.png">
-      <provider selected="true" editor-type-id="images" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/world/Tile.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -424,10 +393,34 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/world/World.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="155">
+          <caret line="131" column="40" selection-start-line="131" selection-start-column="40" selection-end-line="131" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/entity/Projectile.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="347">
+          <caret line="43" column="35" selection-start-line="43" selection-start-column="35" selection-end-line="43" selection-end-column="35" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/entity/Entity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="89" column="9" selection-start-line="44" selection-start-column="8" selection-end-line="89" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/entity/Player.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="19" column="50" selection-start-line="19" selection-start-column="50" selection-end-line="19" selection-end-column="50" />
+        <state relative-caret-position="569">
+          <caret line="43" column="87" selection-start-line="43" selection-start-column="87" selection-end-line="43" selection-end-column="87" />
         </state>
       </provider>
     </entry>

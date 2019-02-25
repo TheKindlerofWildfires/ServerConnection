@@ -41,6 +41,7 @@ public abstract class Entity {
 	}
 	
 	public void collideWithTiles(World world) {
+
 		AABB[] boxes = new AABB[25];
 		for (int i = 0; i < 5; i++) {
 			for (int j = 0; j < 5; j++) {
@@ -90,6 +91,7 @@ public abstract class Entity {
 	}
 	
 	public abstract void update(float delta, Window window, Camera camera, World world);
+
 	
 	public void render(Shader shader, Camera camera, World world) {
 		Matrix4f target = camera.getProjection();

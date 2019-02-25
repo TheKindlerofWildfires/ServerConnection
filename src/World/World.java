@@ -129,7 +129,7 @@ public class World {
 		for (Entity entity : entities) {
 			entity.update(delta, window, camera, this);
 		}
-		
+		//This is where collisions occur
 		for (int i = 0; i < entities.size(); i++) {
 			entities.get(i).collideWithTiles(this);
 			for (int j = i + 1; j < entities.size(); j++) {

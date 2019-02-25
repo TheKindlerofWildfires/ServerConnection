@@ -13,25 +13,37 @@ public class Player extends Entity {
 	public static final int ANIM_IDLE = 0;
 	public static final int ANIM_WALK = 1;
 	public static final int ANIM_SIZE = 2;
+	public static final int ANIM_FIRE = 3;
+
+
 	public int speed;
 	public Player(Transform transform) {
 		super(ANIM_SIZE, transform);
 		setAnimation(ANIM_IDLE, new Animation(4, 1, "player/idle"));
 		setAnimation(ANIM_WALK, new Animation(4, 1, "player/walking"));
+		setAnimation(ANIM_WALK, new Animation(4, 1, "player/fire"));
 		speed = 15;
 	}
 	
 	@Override
 	public void update(float delta, Window window, Camera camera, World world) {
 		Vector2f movement = new Vector2f();
-		if (window.getInput().isKeyDown(GLFW.GLFW_KEY_A)) movement.add(-speed * delta, 0);
+		if (window.getInput().isKeyDown(GLFW.GLFW_KEY_A)) {movement.add(-speed * delta, 0);}
 		
-		if (window.getInput().isKeyDown(GLFW.GLFW_KEY_D)) movement.add(speed * delta, 0);
+		if (window.getInput().isKeyDown(GLFW.GLFW_KEY_D)) {movement.add(speed * delta, 0);}
 		
-		if (window.getInput().isKeyDown(GLFW.GLFW_KEY_W)) movement.add(0, speed * delta);
+		if (window.getInput().isKeyDown(GLFW.GLFW_KEY_W)) {movement.add(0, speed * delta);}
 		
-		if (window.getInput().isKeyDown(GLFW.GLFW_KEY_S)) movement.add(0, -speed * delta);
-		
+		if (window.getInput().isKeyDown(GLFW.GLFW_KEY_S)) {movement.add(0, -speed * delta);}
+
+		if (window.getInput().isKeyDown(GLFW.GLFW_KEY_SPACE)){
+			useAnimation(ANIM_FIRE);
+			//spawn a projectile --> two choices
+			/*
+			1) projectile manager holds
+			2) player holds it (like this one so that can have limit to projectile spam
+			 */
+		}
 		move(movement);
 		
 		if (movement.x != 0 || movement.y != 0)
