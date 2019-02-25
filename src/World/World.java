@@ -32,7 +32,10 @@ public class World {
 		try {
 			BufferedImage tile_sheet = ImageIO.read(new File("./levels/" + world + "/tiles.png"));
 			BufferedImage entity_sheet = ImageIO.read(new File("./levels/" + world + "/entities.png"));
-			
+
+			//currently there is a bug where if your screensize is bigger than the tilesheet it shits itself
+			//also I want to do away with tilesheets eventually so I'm not sure how much I care
+			//which will involve making pseudorandom code so I should grab a perlin lib
 			width = tile_sheet.getWidth();
 			height = tile_sheet.getHeight();
 			scale = 32;
