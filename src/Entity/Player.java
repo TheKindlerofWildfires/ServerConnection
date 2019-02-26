@@ -13,6 +13,10 @@ public class Player extends Entity {
 	public static final int ANIM_IDLE = 0;
 	public static final int ANIM_WALK = 1;
 	public static final int ANIM_SIZE = 2;
+	public int direction = 0; //0N 1E 2S 3W
+	//My proposed solution is to cut down on anim size, and make 4 options for each anim (nesw)
+	//Previous size 4*3 = 12 = 4*states;
+	//New size = 3*3*4 = 36 = 12* states;
 	public int speed;
 	public Player(Transform transform) {
 		super(ANIM_SIZE, transform);
@@ -24,13 +28,25 @@ public class Player extends Entity {
 	@Override
 	public void update(float delta, Window window, Camera camera, World world) {
 		Vector2f movement = new Vector2f();
-		if (window.getInput().isKeyDown(GLFW.GLFW_KEY_A)) movement.add(-speed * delta, 0);
+		if (window.getInput().isKeyDown(GLFW.GLFW_KEY_A)){
+			direction = 3;
+			movement.add(-speed * delta, 0);
+		}
 		
-		if (window.getInput().isKeyDown(GLFW.GLFW_KEY_D)) movement.add(speed * delta, 0);
+		if (window.getInput().isKeyDown(GLFW.GLFW_KEY_D)) {
+			direction = 1;
+			movement.add(speed * delta, 0);
+		}
 		
-		if (window.getInput().isKeyDown(GLFW.GLFW_KEY_W)) movement.add(0, speed * delta);
+		if (window.getInput().isKeyDown(GLFW.GLFW_KEY_W)){
+			direction = 0;
+			movement.add(0, speed * delta);
+		}
 		
-		if (window.getInput().isKeyDown(GLFW.GLFW_KEY_S)) movement.add(0, -speed * delta);
+		if (window.getInput().isKeyDown(GLFW.GLFW_KEY_S)){
+			direction = 2;
+			movement.add(0, -speed * delta);
+		}
 		
 		move(movement);
 		
