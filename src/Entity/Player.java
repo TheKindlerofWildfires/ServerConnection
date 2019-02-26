@@ -9,11 +9,13 @@ import render.Animation;
 import render.Camera;
 import world.World;
 
+import static org.lwjgl.glfw.GLFW.GLFW_KEY_SPACE;
+
 public class Player extends Entity {
 	public static final int ANIM_IDLE = 0;
 	public static final int ANIM_WALK = 1;
-	public static final int ANIM_SIZE = 2;
-	public static final int ANIM_FIRE = 3;
+	public static final int ANIM_FIRE = 2;
+	public static final int ANIM_SIZE = 3;
 
 
 	public int speed;
@@ -21,7 +23,7 @@ public class Player extends Entity {
 		super(ANIM_SIZE, transform);
 		setAnimation(ANIM_IDLE, new Animation(4, 1, "player/idle"));
 		setAnimation(ANIM_WALK, new Animation(4, 1, "player/walking"));
-		setAnimation(ANIM_WALK, new Animation(4, 1, "player/fire"));
+		setAnimation(ANIM_FIRE, new Animation(4, 1, "player/walking"));
 		speed = 15;
 	}
 	
@@ -36,20 +38,14 @@ public class Player extends Entity {
 		
 		if (window.getInput().isKeyDown(GLFW.GLFW_KEY_S)) {movement.add(0, -speed * delta);}
 
-		if (window.getInput().isKeyDown(GLFW.GLFW_KEY_SPACE)){
-			useAnimation(ANIM_FIRE);
-			//spawn a projectile --> two choices
-			/*
-			1) projectile manager holds
-			2) player holds it (like this one so that can have limit to projectile spam
-			 */
-		}
 		move(movement);
-		
-		if (movement.x != 0 || movement.y != 0)
-			useAnimation(ANIM_WALK);
-		else useAnimation(ANIM_IDLE);
-		
+		if(window.getInput().isKeyDown(GLFW_KEY_SPACE)){
+			useAnimation(ANIM_FIRE);
+		}else {
+			if (movement.x != 0 || movement.y != 0)
+				useAnimation(ANIM_WALK);
+			else useAnimation(ANIM_IDLE);
+		}
 		camera.getPosition().lerp(transform.pos.mul(-world.getScale(), new Vector3f()), 0.05f);
 	}
 }
