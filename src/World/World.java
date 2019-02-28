@@ -3,6 +3,7 @@ package world;
 import collision.AABB;
 import entity.Entity;
 import entity.Player;
+import entity.Projectile;
 import entity.Transform;
 import io.Window;
 import org.joml.*;
@@ -22,6 +23,7 @@ public class World {
 	private byte[] tiles;
 	private AABB[] bounding_boxes;
 	private List<Entity> entities;
+	private List<Entity> entitiesQue;
 	private int width;
 	private int height;
 	private int scale;
@@ -46,6 +48,7 @@ public class World {
 			tiles = new byte[width * height];
 			bounding_boxes = new AABB[width * height];
 			entities = new ArrayList<>();
+			entitiesQue = new ArrayList<>();
 			
 			Transform transform;
 			
@@ -137,6 +140,10 @@ public class World {
 			}
 			entities.get(i).collideWithTiles(this);
 		}
+		for(int i = 0; i<entitiesQue.size();i++){
+			entities.add(entitiesQue.get(i));
+		}
+		entitiesQue.clear();
 	}
 	
 	public void correctCamera(Camera camera, Window window) {
@@ -160,6 +167,10 @@ public class World {
 		else {
 			bounding_boxes[x + y * width] = null;
 		}
+	}
+	public void addEntity(Transform t, Vector2f direction){
+		Projectile p = new Projectile(t, direction);
+		entitiesQue.add(p);
 	}
 	
 	public Tile getTile(int x, int y) {

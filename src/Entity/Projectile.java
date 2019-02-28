@@ -17,7 +17,7 @@ public class Projectile extends Entity {
     public static final int ANIM_SIZE = 2;
     public int speed;
     public Vector2f direction;
-    public Projectile(Transform transform, Vector2f direction) {
+    public Projectile(Transform transform, Vector2f location) {
         super(ANIM_SIZE, transform);//Haven't checked this yet, this class itself will be extended eventually
         setAnimation(ANIM_HIT, new Animation(4, 1, "projectile/idle")); //alter to explode
         setAnimation(ANIM_MOVE, new Animation(4, 1, "projectile/walking")); //set to beam
@@ -28,7 +28,8 @@ public class Projectile extends Entity {
     @Override
     public void update(float delta, Window window, Camera camera, World world) {
         Vector2f movement = new Vector2f();
-        movement.add(direction.mul(speed).mul(delta));
+        //movement.add(direction.mul(speed).mul(delta));
+        //movement.add(1,0);
 
         move(movement);// Haven't checked this yet (Should do same collision stuff but if connect should be different
         //useAnimation(ANIM_WALK);

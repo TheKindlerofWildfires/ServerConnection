@@ -21,7 +21,9 @@ public class Animation {
 		
 		this.frames = new Texture[amount];
 		for (int i = 0; i < amount; i++) {
+
 			this.frames[i] = new Texture(filename + "/" + i + ".png");
+			//System.out.println(i);
 		}
 	}
 	
