@@ -17,17 +17,17 @@ public class Projectile extends Entity {
     public static final int ANIM_SIZE = 2;
     public int speed;
     public Vector2f direction;
-    public Projectile(Transform transform, Vector2f location) {
+    public Projectile(Transform transform, Vector2f direction) {
         super(ANIM_SIZE, transform);//Haven't checked this yet, this class itself will be extended eventually
         setAnimation(ANIM_HIT, new Animation(4, 1, "projectile/idle")); //alter to explode
         setAnimation(ANIM_MOVE, new Animation(4, 1, "projectile/walking")); //set to beam
-        speed = 15;
+        speed = 10;
         this.direction = direction;
     }
 
     @Override
     public void update(float delta, Window window, Camera camera, World world) {
-        Vector2f movement = new Vector2f();
+        Vector2f movement = new Vector2f(direction.x*speed*delta, direction.y*speed*delta);
         //movement.add(direction.mul(speed).mul(delta));
         //movement.add(1,0);
 

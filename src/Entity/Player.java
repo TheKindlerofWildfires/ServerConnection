@@ -50,7 +50,7 @@ public class Player extends Entity {
 			direction= new Vector2f(0,-1);}
 
 		move(movement);
-		if(window.getInput().isKeyDown(GLFW_KEY_SPACE)){
+		if(window.getInput().isKeyPressed(GLFW_KEY_SPACE)){
 			useAnimation(ANIM_FIRE);
 			Transform t = new Transform();
 			t.pos.x = transform.pos.x;
